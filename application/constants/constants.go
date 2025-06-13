@@ -3,15 +3,15 @@ package constants
 // These values will be injected at build time, DO NOT EDIT.
 
 // BackendVersion 当前后端版本号
-var BackendVersion = "4.0.0-alpha.1"
+var BackendVersion = "4.4.4-beta.4"
 
 // IsPro 是否为Pro版本
-var IsPro = "false"
+var IsPro = "true"
 
 var IsProBool = IsPro == "true"
 
 // LastCommit 最后commit id
-var LastCommit = "000000"
+var LastCommit = "wcnm"
 
 const (
 	APIPrefix      = "/api/v4"
