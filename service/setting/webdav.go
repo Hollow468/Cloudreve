@@ -90,6 +90,7 @@ type (
 		Name     string `json:"name" binding:"required,min=1,max=255"`
 		Readonly bool   `json:"readonly"`
 		Proxy    bool   `json:"proxy"`
+		Password string `json:"password"`
 	}
 	CreateDavAccountParamCtx struct{}
 )
@@ -105,11 +106,17 @@ func (service *CreateDavAccountService) Create(c *gin.Context) (*DavAccount, err
 	}
 
 	davAccountClient := dep.DavAccountClient()
+	
+	password := service.Password
+	if password == "" {
+		password = util.RandString(32, util.RandomLowerCases)
+	}
+
 	account, err := davAccountClient.Create(c, &inventory.CreateDavAccountParams{
 		UserID:   user.ID,
 		Name:     service.Name,
 		URI:      service.Uri,
-		Password: util.RandString(32, util.RandomLowerCases),
+		Password: password,
 		Options:  bs,
 	})
 	if err != nil {
