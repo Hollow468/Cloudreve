@@ -8,7 +8,7 @@
 *.bin
 /release/
 application/statics/assets.zip
-
+assets/node*
 # Test binary, build with `go test -c`
 *.test
 
