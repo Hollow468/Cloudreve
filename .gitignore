@@ -9,6 +9,7 @@
 /release/
 application/statics/assets.zip
 assets/node*
+assets/build
 # Test binary, build with `go test -c`
 *.test
 
@@ -32,3 +33,4 @@ conf/conf.ini
 dist/
 data/
 tmp/
+./dist
